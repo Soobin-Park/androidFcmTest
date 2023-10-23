@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.galaxy.androidFcmTest"
           xmlns:tools="http://schemas.android.com/tools">
+
+    // Internet permission 추가
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="true"
@@ -12,8 +16,8 @@
             android:theme="@style/Theme.AndroidFcmTest"
             tools:targetApi="31">
         <activity
-                android:name=".MainActivity"
-                android:exported="true">
+                android:name="com.galaxy.androidFcmTest.MainActivity"
+                android:exported="true" tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,6 +25,7 @@
             </intent-filter>
         </activity>
 
+        //service 추가 및 intent 필터 추가
         <service android:name=".MyFirebaseMessagingService" android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
